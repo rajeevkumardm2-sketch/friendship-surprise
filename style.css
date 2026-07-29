@@ -1,0 +1,434 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    background:#000;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    position:relative;
+    isolation:isolate;
+}
+
+
+/* Scene System */
+
+.scene{
+    width:100%;
+    height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+    position:absolute;
+    top:0;
+    left:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(212,175,55,0.12),
+    #000 60%);
+}
+
+
+.scene.active{
+    display:flex;
+    animation:sceneFade 2s ease;
+}
+
+
+
+/* Text */
+
+.content{
+    max-width:800px;
+}
+
+
+h1{
+    font-family:'Cinzel',serif;
+    font-size:45px;
+    color:#d4af37;
+    text-shadow:
+    0 0 10px #d4af37,
+    0 0 30px rgba(212,175,55,0.6);
+
+    margin-bottom:20px;
+}
+
+
+h2{
+    font-size:25px;
+    font-weight:400;
+    line-height:1.6;
+}
+
+
+p{
+    max-width:700px;
+    margin-top:25px;
+    font-size:19px;
+    line-height:1.8;
+    color:#f5f5f5;
+}
+
+
+
+/* Start Button */
+
+button{
+
+    margin-top:35px;
+
+    padding:14px 40px;
+
+    border-radius:50px;
+
+    border:1px solid #d4af37;
+
+    background:transparent;
+
+    color:#d4af37;
+
+    font-size:18px;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+button:hover{
+
+    background:#d4af37;
+
+    color:#000;
+
+    box-shadow:
+    0 0 25px #d4af37;
+
+}
+
+
+
+/* Headphone */
+
+.icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+    animation:pulse 2s infinite;
+
+}
+
+
+
+/* Photos */
+
+
+.photo-scene img{
+
+    width:75%;
+
+    max-width:380px;
+
+    border-radius:25px;
+
+    border:2px solid #d4af37;
+
+    box-shadow:
+    0 0 20px rgba(212,175,55,.5);
+
+    animation:photoZoom 8s infinite alternate;
+
+}
+
+
+
+/* Letter */
+
+
+#letter{
+
+    display:none;
+
+    max-width:650px;
+
+    max-height:70vh;
+
+    overflow:auto;
+
+    margin-top:30px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:1px solid #d4af37;
+
+    backdrop-filter:blur(12px);
+
+    animation:letterOpen 1.5s ease;
+
+}
+
+
+#letter h2{
+
+    color:#d4af37;
+
+    font-family:'Cinzel',serif;
+
+}
+
+
+
+/* Signature */
+
+.signature{
+
+    margin-top:40px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:45px;
+
+    color:#d4af37;
+
+}
+
+
+
+/* Animations */
+
+
+@keyframes sceneFade{
+
+    from{
+        opacity:0;
+        transform:scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+@keyframes photoZoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.08);
+    }
+
+}
+
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+
+@keyframes letterOpen{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:32px;
+    }
+
+
+    h2{
+        font-size:20px;
+    }
+
+
+    p{
+        font-size:16px;
+    }
+
+
+    .photo-scene img{
+
+        width:90%;
+
+    }
+
+
+    .signature{
+
+        font-size:38px;
+
+    }
+
+}/* ===========================
+   KITKAT RAIN
+=========================== */
+
+#kitkat-rain{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.kitkat{
+    position:absolute;
+    top:-80px;
+    width:40px;
+    animation:kitkatFall linear forwards;
+    opacity:.95;
+}
+
+@keyframes kitkatFall{
+
+0%{
+transform:translateY(-100px) rotate(0deg);
+}
+
+100%{
+transform:translateY(120vh) rotate(360deg);
+}
+
+}
+
+
+/* ===========================
+   FINAL DOLL
+=========================== */
+
+.final-content{
+    position:relative;
+    z-index:5;
+    text-align:center;
+}
+
+.doll-box{
+    margin-top:25px;
+    margin-bottom:20px;
+}
+
+.cute-doll{
+
+    width:220px;
+    max-width:80%;
+    opacity:0;
+
+    transform:scale(.7);
+
+    animation:dollShow 3s ease forwards;
+
+    animation-delay:1.5s;
+
+    filter:
+    drop-shadow(0 0 12px #ffb6c1)
+    drop-shadow(0 0 25px gold);
+
+}
+
+@keyframes dollShow{
+
+0%{
+
+opacity:0;
+
+transform:
+translateY(50px)
+scale(.7);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+}
+
+
+/* Heart Glow */
+
+.cute-doll:hover{
+
+filter:
+
+drop-shadow(0 0 20px #ff4d6d)
+
+drop-shadow(0 0 40px gold);
+
+transition:.5s;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.cute-doll{
+
+width:170px;
+
+}
+
+.kitkat{
+
+width:32px;
+
+}
+
+}
